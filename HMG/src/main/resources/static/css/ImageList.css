@@ -1,0 +1,94 @@
+/* 전체 레이아웃 */
+.imageList-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 왼쪽 사이드바 */
+.imageList-sidebar {
+    width: 18%; /* 사이드바 크기 */
+    background-color: #f4f4f4;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+/* 오른쪽 메인 콘텐츠 */
+.imageList-main-content {
+    width: 82%; /* 메인 콘텐츠 너비 */
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* 상단 헤더 */
+.imageList-header {
+    height: 10%;
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+
+/* DICOM 뷰어 그리드 */
+.imageList-viewer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2열 그리드 */
+    grid-template-rows: 1fr 1fr; /* 2행 그리드 */
+    gap: 0; /* 빈칸 없이 배치 */
+    width: 100%;
+    height: calc(100vh - 100px); /* 화면 높이에 맞춤, 헤더 높이를 뺌 */
+    box-sizing: border-box;
+}
+
+/* 각 DICOM 뷰어 컨테이너 스타일 */
+.imageList-viewer-container {
+    width: 100%;
+    height: 100%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #dee2e6; /* 테두리 추가 */
+    box-sizing: border-box;
+}
+
+/* DICOM 이미지 스타일 */
+.imageList-viewer-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 컨테이너 전체를 채우도록 설정 */
+}
+
+
+/* 페이지 네비게이션 스타일 */
+.imageList-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.imageList-pagination a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.imageList-pagination a:hover {
+    background-color: #808080;
+    color: #ffffff;
+}
+
+.imageList-pagination span {
+    padding: 5px 10px;
+    font-weight: bold;
+}

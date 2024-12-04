@@ -1,0 +1,23 @@
+function enableStackScrollWithWheel(dicomElement) {
+    // StackScroll 도구 활성화
+    cornerstoneTools.setToolActiveForElement(dicomElement, 'StackScroll', { mouseButtonMask: 0 });
+
+    // 휠 이벤트 추가를 위해 툴 옵션 설정
+    const options = {
+        loop: false,
+        allowSkipping: true,
+    };
+    cornerstoneTools.setToolOptions('StackScroll', dicomElement, options);
+
+    // 휠 이벤트 추가
+    dicomElement.addEventListener('wheel', function (evt) {
+        const eventData = {
+            element: dicomElement,
+            deltaY: evt.deltaY,
+        };
+
+        // cornerstoneTools 이벤트 시스템을 활용하여 휠 이벤트 발생시킴
+        cornerstoneTools.triggerEvent(dicomElement, 'mouseWheel', eventData);
+        evt.preventDefault();
+    });
+}
